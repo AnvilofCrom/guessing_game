@@ -1,20 +1,27 @@
 <script>
-
+//Declaring three variables: guess which is the value set by the user; answer, which is set to the value of 8; message which is based upon what the user inputs for the variable "guess."
 var guess, answer, message;
-answer = 8
-guess = prompt ("How many bald eagles do you think I've seen this year?")
-if (guess == answer) {
-  message = "You guess right!!! Great job!!!"
+//define function called GameTime so that we can repeat the game until the correct answer is made
+function gameTime() {
+  answer = 8
+  guess = prompt("How many bald eagles do you think I've seen this year?")
+// if guess meets one of these conditions, a specific message will be displayed as an pop-up alert message
+  if (guess == answer) {
+    message = "You guessed right!!! Great job!!!";
+  } else if (guess < answer) {
+    message = "Too small pick a larger number"
+  } else if (guess > answer) {
+    message = "Try again! Hint guess a number below 10"
+  } else {
+    message = "Sorry, guess again"
+  }
+  alert (message);
+//if message equals the condition below stop game (have to do this because the use of a function)
+  return (message === "You guessed right!!! Great job!!!") ? undefined : gameTime();
 }
-else if (guess > answer) {
-  message = "Try again! Hint guess a number below 10"
-}
-else if (guess = 10) {
-  message = "You are close but pick a smaller number"
-}
-else if (guess < answer) {
-  message = "Too small pick a larger number"
-}
-else {message = "Sorry, guess again"}
-alert (message);
+//call function to repeat game until guess = answer
+gameTime();
+
+
+
 </script>

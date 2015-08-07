@@ -1,60 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+<title>The Minds Eye Game</title>
+</head>
+
+<body>
+
+<!--div style used to center align text-->
+<h3><div style="text-align:center"><i> MY MINDS EYE</i> </div></h3>
+
+<p><font color="blue">CHAMPION MIND READERS</font></p>
+<p>Player Number of Guesses</p>
+<ol>
+<li>GGG       1
+<li>MDB       2
+<li>BUD       5
+</ol>
+
+
+<hr />
+
+<h3>Test Your Mind Reading Ability</h3>
+<p> Let's test your mind reading abilities. <br /> In the pop-up box to the right, select a number between 1 and 10. <br /> The game will continue until you guess the right answer. <br />
+
+<p><b>GOOD LUCK!</b></p>
+
+<h4>Want to blow your mind some more?</h4>
+<h4>CLICK <a href="http://mentalfloss.com/article/52275/65-amazing-facts-will-blow-your-mind">HERE</a></h4>
+
+
+<div style="text-align:center"><img src="http://www.learning-mind.com/wp-content/uploads/2014/06/pineal-gland-nutrition.jpg"></div>
+
 <script>
 var Game = function (question, answer) {
   this.question = question;
   this.answer = answer;
   this.play = true;
-  this.guess = '';
+  this.guess = 0;
 
 this.startGame = function(){
 
-  this.runEagle();
+  this.runMind();
   }
 
 }
 
-Game.prototype.runEagle = function(){
+Game.prototype.runMind= function(){
   while(this.play){
   this.guess = prompt(this.question);
 
 //if guess meets one of these conditions, a specific message will be displayed as an pop-up alert message
 
   if (this.guess == this.answer) {
-    alert("You guessed right!!! Great job!!!");
+    alert('CORRECT! YOU JUST BLEW MY MIND!');
     this.play = false;
   } else
 
-  if (this.guess < this.answer) {
-    alert("Too small pick a larger number")
+  if (this.guess > this.answer) {
+    alert('Too small pick a larger number')
   } else
 
-  if (this.guess > this.answer) {
-    alert("Try again! Hint: guess a number below 9")
+  if (this.guess < this.answer) {
+    alert('Try again! Hint: guess a smaller number')
   } else {
-    alert("Sorry, guess again")
+    alert('Sorry, guess again')
   }
 
 }
 //if message equals the condition below stop game (have to do this because the use of a function)
-//message = "You guessed right!!! Great job!!!") ? undefined : gameTime();
+//message = 'You guessed right!!! Great job!!!') ? undefined : gameTime();
 };
 
 
-var checkAnswer = new Game ("How many bald eagles do you think I've seen this year?", "8");
+var checkAnswer = new Game ('In My Minds Eye, How Many Eagles do I see? Enter a number between 1-10', '5');
 checkAnswer.startGame();
-//Declaring three variables: guess which is the value set by the user; answer, which is set to the value of 8; message which is based upon what the user inputs for the variable "guess."
-//var guess, answer, message;
-//var play = true;
-var game = new Game('How old am i?', '15');
+
+
+// Commented out game extension below
+// var game = new Game('How old am i?', '88');
+
 game.startGame();
-//declare function called GameTime so that we can repeat the game until the correct answer is made
 
-//function gameTime() {
-
-
-// //call function to repeat game until guess = answer
-// while (this.play){
-//   gameTime();
-// }
-// }
 
 </script>
+
+</body>
+
+</html>

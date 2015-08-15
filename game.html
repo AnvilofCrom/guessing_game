@@ -8,17 +8,11 @@
 
 <body>
 
-<!--div style used to center align text-->
-<h3><div style="text-align:center"><i> MY MINDS EYE</i> </div></h3>
+<h3><i><center>My Minds Eye</center></i></h3>
 
-<p><font color="blue">CHAMPION MIND READERS</font></p>
-<p>Player Number of Guesses</p>
-<ol>
-<li>GGG       1
-<li>MDB       2
-<li>BUD       5
-</ol>
-
+<h3><font color="blue">Your List of Guesses</font></h3>
+<!-- Here's where the guesses are listed  -->
+<h3 id='guess-list'></h3>
 
 <hr />
 <h3>Description and Game Instructions</h3>
@@ -34,56 +28,7 @@
 
 <div style="text-align:center"><img src="http://www.learning-mind.com/wp-content/uploads/2014/06/pineal-gland-nutrition.jpg"></div>
 
-<script>
-var Question = function (answer, question,message) {
-  this.guess = 0;
-  this.answer = answer;
-  this.question = question;
-  this.message = message;
-  // this.play = true;
-
-
-this.run = function(){
-this.guess = prompt(question);
-this.guess = parseInt(this.guess);
-console.log(this.guess);
-//   this.runMind();
-//   }
-
-// }
-// commenting out to rewite while loop
-// Question.prototype.runMind= function(){
-//   while(this.play){
-//   this.guess = prompt(this.question);
-
-while(this.guess != this.answer) {
-  if(this.guess > 10) {
-    alert('Nice try! Try again with a number between 5 and 9');
-    this.guess = prompt('Here we go - enter a new guess');
- } else if (this.guess < 5) {
-  alert ('Nice try but pick a larger number');
-   this.guess = prompt('Guess again');
- }
- else {
-    alert('Incorrect. Try again');
-    this.guess = prompt('Your last guess was ' + this.guess);
-  }
-}
-
-if (this.guess == this.answer) {
-  alert(this.message);
-}
-};
-}
-
-var mindRead = new Question (5, 'In My Minds Eye, How Many Eagles do I see? Enter a number', 'You are correct!');
-
-var fingerMind = new Question (6, 'How many fingers am I holding up', 'You are correct');
-
-
-mindRead.run();
-
-fingerMind.run();
+<script src="js/game.js">
 
 </script>
 

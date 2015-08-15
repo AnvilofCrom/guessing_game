@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <head>
+  <!--meta>
+  <charset add those here-->
 <title>The Minds Eye Game</title>
 </head>
 
@@ -19,6 +21,7 @@
 
 
 <hr />
+<h3>Description and Game Instructions</h3>
 
 <h3>Test Your Mind Reading Ability</h3>
 <p> Let's test your mind reading abilities. <br /> In the pop-up box to the right, select a number between 1 and 10. <br /> The game will continue until you guess the right answer. <br />
@@ -49,24 +52,24 @@ Game.prototype.runMind= function(){
   while(this.play){
   this.guess = prompt(this.question);
 
+//answer = math.Floor(math.random() *100 +1);
+//consol.log(answer)
+
 //if guess meets one of these conditions, a specific message will be displayed as an pop-up alert message
 
-  if (this.guess == this.answer) {
-    alert('CORRECT! YOU JUST BLEW MY MIND!');
-    this.play = false;
-  } else
+   if (this.guess == this.answer) {
+     alert('CORRECT! YOU JUST BLEW MY MIND!');
+     this.play = false;
+   } else if (this.guess > this.answer) {
+     alert('Too small pick a larger number')
+   }
+    else if (this.guess < this.answer) {
+      alert('Try again! Hint: guess a smaller number')
+    } else {
+     alert('Sorry, guess again');
+   }
+ }
 
-  if (this.guess > this.answer) {
-    alert('Too small pick a larger number')
-  } else
-
-  if (this.guess < this.answer) {
-    alert('Try again! Hint: guess a smaller number')
-  } else {
-    alert('Sorry, guess again')
-  }
-
-}
 //if message equals the condition below stop game (have to do this because the use of a function)
 //message = 'You guessed right!!! Great job!!!') ? undefined : gameTime();
 };

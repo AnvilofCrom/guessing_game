@@ -35,55 +35,55 @@
 <div style="text-align:center"><img src="http://www.learning-mind.com/wp-content/uploads/2014/06/pineal-gland-nutrition.jpg"></div>
 
 <script>
-var Game = function (question, answer) {
-  this.question = question;
-  this.answer = answer;
-  this.play = true;
+var Question = function (answer, question,message) {
   this.guess = 0;
+  this.answer = answer;
+  this.question = question;
+  this.message = message;
+  // this.play = true;
 
-this.startGame = function(){
 
-  this.runMind();
+this.run = function(){
+this.guess = prompt(question);
+this.guess = parseInt(this.guess);
+console.log(this.guess);
+//   this.runMind();
+//   }
+
+// }
+// commenting out to rewite while loop
+// Question.prototype.runMind= function(){
+//   while(this.play){
+//   this.guess = prompt(this.question);
+
+while(this.guess != this.answer) {
+  if(this.guess > 10) {
+    alert('Nice try! Try again with a number between 5 and 9');
+    this.guess = prompt('Here we go - enter a new guess');
+ } else if (this.guess < 5) {
+  alert ('Nice try but pick a larger number');
+   this.guess = prompt('Guess again');
+ }
+ else {
+    alert('Incorrect. Try again');
+    this.guess = prompt('Your last guess was ' + this.guess);
   }
-
 }
 
-Game.prototype.runMind= function(){
-  while(this.play){
-  this.guess = prompt(this.question);
-
-//answer = math.Floor(math.random() *100 +1);
-//consol.log(answer)
-
-//if guess meets one of these conditions, a specific message will be displayed as an pop-up alert message
-
-   if (this.guess == this.answer) {
-     alert('CORRECT! YOU JUST BLEW MY MIND!');
-     this.play = false;
-   } else if (this.guess > this.answer) {
-     alert('Too small pick a larger number')
-   }
-    else if (this.guess < this.answer) {
-      alert('Try again! Hint: guess a smaller number')
-    } else {
-     alert('Sorry, guess again');
-   }
- }
-
-//if message equals the condition below stop game (have to do this because the use of a function)
-//message = 'You guessed right!!! Great job!!!') ? undefined : gameTime();
+if (this.guess == this.answer) {
+  alert(this.message);
+}
 };
+}
+
+var mindRead = new Question (5, 'In My Minds Eye, How Many Eagles do I see? Enter a number', 'You are correct!');
+
+var fingerMind = new Question (6, 'How many fingers am I holding up', 'You are correct');
 
 
-var checkAnswer = new Game ('In My Minds Eye, How Many Eagles do I see? Enter a number between 1-10', '5');
-checkAnswer.startGame();
+mindRead.run();
 
-
-// Commented out game extension below
-// var game = new Game('How old am i?', '88');
-
-game.startGame();
-
+fingerMind.run();
 
 </script>
 
